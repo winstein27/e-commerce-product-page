@@ -1,0 +1,31 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 1rem;
+}
+
+.menu {
+  display: none;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.actions {
+  display: inline-block;
+}
