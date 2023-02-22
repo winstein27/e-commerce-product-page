@@ -3,7 +3,7 @@ header {
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 0.5rem;
+  padding: 1.2rem;
 }
 
 .menu {
@@ -45,8 +45,17 @@ header {
 
 .logo {
   display: inline-block;
+  margin: 0 1rem;
 }
 
 .actions {
   display: inline-block;
+  position: absolute;
+  right: 1.2rem;
+}
+
+.actions > button,
+.actions > img {
+  vertical-align: middle;
+  margin: 0 0.7rem;
 }
