@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 import styles from './Header.module.css';
 
@@ -14,6 +15,35 @@ const Header = () => {
 
   const menuStyles = styles.menu + (isMenuOpen ? ` ${styles.mobile}` : '');
 
+  const navMenu = (
+    <nav id="menu" className={menuStyles}>
+      <IconButton
+        imgPath="../../images/icon-close.svg"
+        label="Close menu"
+        controls="menu"
+        expanded={isMenuOpen}
+        onClick={closeMenu}
+      />
+      <ul>
+        <li>
+          <a href="#">Collections</a>
+        </li>
+        <li>
+          <a href="#">Men</a>
+        </li>
+        <li>
+          <a href="#">Women</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  );
+
   return (
     <>
       <header>
@@ -26,32 +56,11 @@ const Header = () => {
         />
 
         {isMenuOpen && <Backdrop onClick={closeMenu} />}
-        <nav id="menu" className={menuStyles}>
-          <IconButton
-            imgPath="../../images/icon-close.svg"
-            label="Close menu"
-            controls="menu"
-            expanded={isMenuOpen}
-            onClick={closeMenu}
-          />
-          <ul>
-            <li>
-              <a href="#">Collections</a>
-            </li>
-            <li>
-              <a href="#">Men</a>
-            </li>
-            <li>
-              <a href="#">Women</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
+        {isMenuOpen &&
+          ReactDOM.createPortal(
+            navMenu,
+            document.getElementById('overlay-root') as HTMLElement
+          )}
 
         <div className={styles.logo}>
           <img src="../../images/logo.svg" alt="Sneaker logo"></img>
