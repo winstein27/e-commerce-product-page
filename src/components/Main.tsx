@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Main.module.css';
 
 import PictureGallery from './main/PictureGallery';
+import ProductPrice from './main/ProductPrice';
 
 const Main = () => {
   return (
@@ -19,6 +20,10 @@ const Main = () => {
           Featuring a durable rubber outer sole, they'll withstand everything
           the weather can offer.
         </p>
+      </section>
+
+      <section className={styles['product-info']}>
+        <ProductPrice />
       </section>
     </main>
   );
