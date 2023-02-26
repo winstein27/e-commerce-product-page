@@ -43,7 +43,7 @@ const ProductPrice = () => {
         />
       </div>
       <button className={styles.button}>
-        <img src="../../../images/icon-cart.svg" alt="" />
+        <img src="../../../images/icon-cart-w.svg" alt="" />
         Add to cart
       </button>
     </>
