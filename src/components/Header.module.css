@@ -59,3 +59,7 @@ header {
   vertical-align: middle;
   margin: 0 0.7rem;
 }
+
+.badge {
+  position: relative;
+}

@@ -9,9 +9,12 @@ interface Props {
   expanded?: boolean;
   controls?: string;
   onClick?: () => void;
+  badge?: number;
 }
 
 const IconButton = (props: Props) => {
+  const showBadge = props.badge ? props.badge > 0 : undefined;
+
   return (
     <button
       className={`${styles.button} ${props.className}`}
@@ -21,6 +24,7 @@ const IconButton = (props: Props) => {
       aria-controls={props.controls}
     >
       <img src={props.imgPath} alt="" />
+      {showBadge && <span className={styles.badge}>{props.badge}</span>}
     </button>
   );
 };

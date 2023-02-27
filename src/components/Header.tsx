@@ -82,7 +82,10 @@ const Header = (props: Props) => {
             imgPath="../../images/icon-cart.svg"
             label="Cart"
             onClick={cartIconClickHandler}
+            badge={props.cartProducts}
+            className={styles.badge}
           />
+
           {isCartOpen && (
             <Cart products={props.cartProducts} clearCart={props.clearCart} />
           )}
