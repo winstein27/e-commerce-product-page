@@ -16,9 +16,47 @@
   padding: 1rem;
 }
 
-.cart p {
+.cart > p {
   color: hsl(219, 9%, 45%);
   font-weight: bold;
   text-align: center;
   margin: 3rem 0;
+}
+
+.products {
+  padding: 1rem;
+}
+
+.products > img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15%;
+  border-radius: 6px;
+}
+
+.products > div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 74%;
+  padding-left: 1rem;
+}
+
+.products .total {
+  font-weight: bold;
+}
+
+.products .delete {
+  width: 10%;
+  vertical-align: middle;
+}
+
+.products .checkout {
+  background: hsl(26, 100%, 55%);
+  color: hsl(0, 0%, 100%);
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  padding: 1rem 0;
+  border-radius: 6px;
+  font-size: 1rem;
 }

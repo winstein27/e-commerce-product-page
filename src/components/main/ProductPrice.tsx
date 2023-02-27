@@ -4,8 +4,12 @@ import styles from './ProductPrice.module.css';
 
 import IconButton from '../UI/IconButton';
 
-const ProductPrice = () => {
-  const [counter, setCounter] = useState(0);
+interface Props {
+  addProductsToCart: (items: number) => void;
+}
+
+const ProductPrice = (props: Props) => {
+  const [counter, setCounter] = useState(1);
 
   const addCounter = () => {
     setCounter((prevCounter) => prevCounter + 1);
@@ -13,12 +17,17 @@ const ProductPrice = () => {
 
   const subtractCounter = () => {
     setCounter((prevCounter) => {
-      if (prevCounter) {
+      if (prevCounter > 1) {
         return prevCounter - 1;
       }
 
-      return 0;
+      return 1;
     });
+  };
+
+  const addToCart = () => {
+    props.addProductsToCart(counter);
+    setCounter(1);
   };
 
   return (
@@ -42,7 +51,7 @@ const ProductPrice = () => {
           onClick={addCounter}
         />
       </div>
-      <button className={styles.button}>
+      <button className={styles.button} onClick={addToCart}>
         <img src="../../../images/icon-cart-w.svg" alt="" />
         Add to cart
       </button>

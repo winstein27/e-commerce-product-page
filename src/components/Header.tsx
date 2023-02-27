@@ -7,7 +7,12 @@ import Backdrop from './UI/Backdrop';
 import IconButton from './UI/IconButton';
 import Cart from './Cart';
 
-const Header = () => {
+interface Props {
+  cartProducts: number;
+  clearCart: () => void;
+}
+
+const Header = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -78,7 +83,9 @@ const Header = () => {
             label="Cart"
             onClick={cartIconClickHandler}
           />
-          {isCartOpen && <Cart />}
+          {isCartOpen && (
+            <Cart products={props.cartProducts} clearCart={props.clearCart} />
+          )}
 
           <img
             src="../../images/image-avatar.png"

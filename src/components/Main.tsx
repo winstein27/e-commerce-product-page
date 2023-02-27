@@ -5,7 +5,11 @@ import styles from './Main.module.css';
 import PictureGallery from './main/PictureGallery';
 import ProductPrice from './main/ProductPrice';
 
-const Main = () => {
+interface Props {
+  addProductsToCart: (items: number) => void;
+}
+
+const Main = (props: Props) => {
   return (
     <main className={styles.main}>
       <section>
@@ -23,7 +27,7 @@ const Main = () => {
       </section>
 
       <section className={styles['product-info']}>
-        <ProductPrice />
+        <ProductPrice addProductsToCart={props.addProductsToCart} />
       </section>
     </main>
   );
