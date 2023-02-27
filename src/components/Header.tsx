@@ -5,12 +5,18 @@ import styles from './Header.module.css';
 
 import Backdrop from './UI/Backdrop';
 import IconButton from './UI/IconButton';
+import Cart from './Cart';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const cartIconClickHandler = () => {
+    setIsCartOpen((prevIsCartOpen) => !prevIsCartOpen);
   };
 
   const menuStyles = styles.menu + (isMenuOpen ? ` ${styles.mobile}` : '');
@@ -67,7 +73,12 @@ const Header = () => {
         </div>
 
         <div className={styles.actions}>
-          <IconButton imgPath="../../images/icon-cart.svg" label="Cart" />
+          <IconButton
+            imgPath="../../images/icon-cart.svg"
+            label="Cart"
+            onClick={cartIconClickHandler}
+          />
+          {isCartOpen && <Cart />}
 
           <img
             src="../../images/image-avatar.png"
