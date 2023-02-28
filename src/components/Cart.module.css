@@ -2,7 +2,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  top: 5rem;
+  top: 0.3rem;
   z-index: 6;
   width: 90vw;
   background: hsl(0, 0%, 100%);
