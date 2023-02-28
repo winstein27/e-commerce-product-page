@@ -63,3 +63,32 @@ header {
 .badge {
   position: relative;
 }
+
+.avatar {
+  width: 30px;
+}
+
+@media (min-width: 800px) {
+  .logo {
+    vertical-align: middle;
+  }
+
+  .menu {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .menu li {
+    display: inline-block;
+    padding: 0 1rem;
+  }
+
+  .menu a {
+    color: hsl(219, 9%, 45%);
+    font-weight: normal;
+  }
+
+  .avatar {
+    width: 4rem;
+  }
+}

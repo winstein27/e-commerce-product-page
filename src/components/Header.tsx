@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import styles from './Header.module.css';
@@ -15,6 +15,25 @@ interface Props {
 const Header = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isMobileScreen, setIsMobileScreen] = useState(screenWidth < 800);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', resizeHandler);
+
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, []);
+
+  useEffect(() => {
+    setIsMobileScreen(screenWidth < 800);
+
+    if (screenWidth > 800 && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [screenWidth, isMenuOpen]);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -28,13 +47,15 @@ const Header = (props: Props) => {
 
   const navMenu = (
     <nav id="menu" className={menuStyles}>
-      <IconButton
-        imgPath="../../images/icon-close.svg"
-        label="Close menu"
-        controls="menu"
-        expanded={isMenuOpen}
-        onClick={closeMenu}
-      />
+      {isMobileScreen && (
+        <IconButton
+          imgPath="../../images/icon-close.svg"
+          label="Close menu"
+          controls="menu"
+          expanded={isMenuOpen}
+          onClick={closeMenu}
+        />
+      )}
       <ul>
         <li>
           <a href="#">Collections</a>
@@ -58,13 +79,15 @@ const Header = (props: Props) => {
   return (
     <>
       <header>
-        <IconButton
-          imgPath="../../images/icon-menu.svg"
-          label="Open menu"
-          controls="menu"
-          expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen(true)}
-        />
+        {isMobileScreen && (
+          <IconButton
+            imgPath="../../images/icon-menu.svg"
+            label="Open menu"
+            controls="menu"
+            expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(true)}
+          />
+        )}
 
         {isMenuOpen && <Backdrop onClick={closeMenu} />}
         {isMenuOpen &&
@@ -76,6 +99,8 @@ const Header = (props: Props) => {
         <div className={styles.logo}>
           <img src="../../images/logo.svg" alt="Sneaker logo"></img>
         </div>
+
+        {!isMobileScreen && navMenu}
 
         <div className={styles.actions}>
           <IconButton
@@ -93,7 +118,7 @@ const Header = (props: Props) => {
           <img
             src="../../images/image-avatar.png"
             alt="User avatar"
-            width="30px"
+            className={styles.avatar}
           />
         </div>
       </header>

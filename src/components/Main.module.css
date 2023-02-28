@@ -19,3 +19,9 @@
 .description {
   color: hsl(219, 9%, 45%);
 }
+
+@media (min-width: 800px) {
+  .main {
+    margin-top: 7rem;
+  }
+}
