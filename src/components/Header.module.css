@@ -2,7 +2,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   padding: 1.2rem;
 }
 
@@ -69,6 +69,10 @@ header {
 }
 
 @media (min-width: 800px) {
+  header {
+    position: static;
+  }
+
   .logo {
     vertical-align: middle;
   }

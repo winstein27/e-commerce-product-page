@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import styles from './App.module.css';
+
 import Header from './components/Header';
 import Main from './components/Main';
 
@@ -15,10 +17,10 @@ function App() {
   };
 
   return (
-    <>
+    <div className={styles.content}>
       <Header cartProducts={cartProducts} clearCart={clearCart} />
       <Main addProductsToCart={addProductsToCart} />
-    </>
+    </div>
   );
 }
 
