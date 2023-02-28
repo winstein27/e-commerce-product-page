@@ -1,0 +1,66 @@
+.view {
+  position: fixed;
+  width: 50vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 6;
+  bottom: 15%;
+}
+
+.pictures {
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.highlighted {
+  width: 90%;
+  margin: auto;
+}
+
+.highlighted img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.previous-icon,
+.next-icon {
+  position: absolute;
+  z-index: 7;
+  background: hsl(223, 64%, 98%);
+  width: 3rem;
+  height: 3rem;
+  top: 35%;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.previous-icon img,
+.next-icon img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.previous-icon {
+  left: 15%;
+}
+
+.next-icon {
+  right: 15%;
+}
+
+.list {
+  width: 100%;
+  margin: auto;
+}
+
+.list .min {
+  width: 24.5%;
+  display: inline-block;
+}
+
+.list .min img {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 30px;
+}

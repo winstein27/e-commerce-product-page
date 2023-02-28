@@ -5,6 +5,7 @@ import useScreen from '../../hooks/useScreen';
 import styles from './PictureGallery.module.css';
 
 import IconButton from '../UI/IconButton';
+import PictureView from './PictureView';
 
 const picturesList = [
   '../../images/image-product-1.jpg',
@@ -15,6 +16,7 @@ const picturesList = [
 
 const PictureGallery = () => {
   const [pictureIndex, setPictureIndex] = useState(0);
+  const [pictureView, setPictureView] = useState(false);
 
   const { isMobileScreen } = useScreen();
 
@@ -34,6 +36,10 @@ const PictureGallery = () => {
     });
   };
 
+  const closePictureView = () => {
+    setPictureView(false);
+  };
+
   return isMobileScreen ? (
     <div className={styles.gallery}>
       <img src={picturesList[pictureIndex]} alt="Product" />
@@ -49,18 +55,26 @@ const PictureGallery = () => {
       />
     </div>
   ) : (
-    <div className={styles.pictures}>
-      <div className={styles.highlighted}>
-        <img src={picturesList[0]} alt="" />
+    <>
+      {pictureView && (
+        <PictureView close={closePictureView} pictures={picturesList} />
+      )}
+      <div className={styles.pictures}>
+        <div
+          className={styles.highlighted}
+          onClick={() => setPictureView(true)}
+        >
+          <img src={picturesList[0]} alt="" />
+        </div>
+        <div className={styles.list}>
+          {picturesList.map((picture, index) => (
+            <div className={styles.min} key={index}>
+              <img src={picture} alt="Product" />
+            </div>
+          ))}
+        </div>
       </div>
-      <div className={styles.list}>
-        {picturesList.map((picture, index) => (
-          <div className={styles.min}>
-            <img src={picture} alt="Product" />
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 
