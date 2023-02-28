@@ -27,7 +27,7 @@ header {
 }
 
 .mobile {
-  position: absolute;
+  position: fixed;
   display: block;
   z-index: 6;
   top: 0;
