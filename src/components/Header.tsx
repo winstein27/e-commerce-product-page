@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import styles from './Header.module.css';
 
+import useScreen from '../hooks/useScreen';
+
 import Backdrop from './UI/Backdrop';
 import IconButton from './UI/IconButton';
 import Cart from './Cart';
@@ -15,25 +17,14 @@ interface Props {
 const Header = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [isMobileScreen, setIsMobileScreen] = useState(screenWidth < 800);
+
+  const { isMobileScreen } = useScreen();
 
   useEffect(() => {
-    const resizeHandler = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', resizeHandler);
-
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileScreen(screenWidth < 800);
-
-    if (screenWidth > 800 && isMenuOpen) {
+    if (!isMobileScreen && isMenuOpen) {
       setIsMenuOpen(false);
     }
-  }, [screenWidth, isMenuOpen]);
+  }, [isMobileScreen, isMenuOpen]);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
