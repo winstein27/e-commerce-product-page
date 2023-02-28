@@ -84,4 +84,8 @@
     width: 60%;
     margin-left: 10px;
   }
+
+  .button:hover {
+    background: hsl(25, 100%, 94%);
+  }
 }

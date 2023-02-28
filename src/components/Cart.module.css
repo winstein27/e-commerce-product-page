@@ -60,3 +60,18 @@
   border-radius: 6px;
   font-size: 1rem;
 }
+
+.products .checkout:hover {
+  background: hsl(25, 100%, 94%);
+}
+
+@media (min-width: 800px) {
+  .cart {
+    width: 25rem;
+    right: 0;
+    top: 6rem;
+    left: initial;
+    transform: none;
+    box-shadow: 5px 10px 20px 1px hsl(220, 14%, 75%);
+  }
+}

@@ -92,7 +92,17 @@ header {
     font-weight: normal;
   }
 
+  .menu a:hover {
+    color: hsl(220, 13%, 13%);
+    font-weight: bold;
+  }
+
   .avatar {
     width: 4rem;
+    border-radius: 60px;
+  }
+
+  .avatar:hover {
+    border: 2px solid orange;
   }
 }
