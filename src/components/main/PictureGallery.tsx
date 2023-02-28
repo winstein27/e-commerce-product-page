@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import useScreen from '../../hooks/useScreen';
+
 import styles from './PictureGallery.module.css';
 
 import IconButton from '../UI/IconButton';
@@ -13,6 +15,8 @@ const picturesList = [
 
 const PictureGallery = () => {
   const [pictureIndex, setPictureIndex] = useState(0);
+
+  const { isMobileScreen } = useScreen();
 
   const previousPicture = () => {
     setPictureIndex((prevPictureIndex) => {
@@ -30,7 +34,7 @@ const PictureGallery = () => {
     });
   };
 
-  return (
+  return isMobileScreen ? (
     <div className={styles.gallery}>
       <img src={picturesList[pictureIndex]} alt="Product" />
       <IconButton
@@ -43,6 +47,19 @@ const PictureGallery = () => {
         imgPath="../../images/icon-next.svg"
         onClick={nextPicture}
       />
+    </div>
+  ) : (
+    <div className={styles.pictures}>
+      <div className={styles.highlighted}>
+        <img src={picturesList[0]} alt="" />
+      </div>
+      <div className={styles.list}>
+        {picturesList.map((picture, index) => (
+          <div className={styles.min}>
+            <img src={picture} alt="Product" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

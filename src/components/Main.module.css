@@ -22,6 +22,18 @@
 
 @media (min-width: 800px) {
   .main {
-    margin-top: 7rem;
+    margin-top: 0;
+  }
+
+  .pictures {
+    display: inline-block;
+    width: 49%;
+    vertical-align: middle;
+  }
+
+  .product-info {
+    vertical-align: middle;
+    display: inline-block;
+    width: 49%;
   }
 }

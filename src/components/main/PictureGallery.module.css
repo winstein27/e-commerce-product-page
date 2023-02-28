@@ -1,3 +1,5 @@
+/* Mobile View */
+
 .gallery {
   width: 100vw;
   height: 17rem;
@@ -34,4 +36,38 @@
 
 .next-icon {
   right: 1.2rem;
+}
+
+/* Desktop View */
+
+.pictures {
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.highlighted {
+  width: 90%;
+  margin: auto;
+}
+
+.highlighted img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.list {
+  width: 100%;
+  margin: auto;
+}
+
+.list .min {
+  width: 24.5%;
+  display: inline-block;
+}
+
+.list .min img {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 30px;
 }

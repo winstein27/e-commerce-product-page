@@ -12,7 +12,7 @@ interface Props {
 const Main = (props: Props) => {
   return (
     <main className={styles.main}>
-      <section>
+      <section className={styles.pictures}>
         <PictureGallery />
       </section>
 
@@ -24,9 +24,6 @@ const Main = (props: Props) => {
           Featuring a durable rubber outer sole, they'll withstand everything
           the weather can offer.
         </p>
-      </section>
-
-      <section className={styles['product-info']}>
         <ProductPrice addProductsToCart={props.addProductsToCart} />
       </section>
     </main>
